@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <div id="test">Click me</div>
+
+    <script src="jq.js"></script>
+    <script>
+        (function($) {
+
+            $('#test').on('click', function(e) {
+
+                $(this).html('Clicked!')
+            } )
+
+        })(DOMHelper)
+    </script>
+</body>
+</html>
