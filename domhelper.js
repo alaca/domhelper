@@ -133,6 +133,20 @@ window.DOMHelper = ( function() {
             });
             return this;
         }
+
+        append(node) {
+            this.each(element => {
+                element.append(node);
+            });
+            return this;
+        }
+
+        prepend(node) {
+            this.each(element => {
+                element.prepend(node);
+            });
+            return this;
+        }
     }
 
     // Instantiate
