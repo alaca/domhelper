@@ -7,6 +7,11 @@ window.DOMHelper = ( function() {
 
         elements = [];
 
+        /**
+         * Constructor
+         *
+         * @param {string|object} selector
+         */
         constructor(selector) {
             if (typeof selector === 'string') {
                 this.elements = document.querySelectorAll(selector);
@@ -14,7 +19,11 @@ window.DOMHelper = ( function() {
                 this.elements = [selector];
             }
         }
-
+        
+        /**
+         * Iterate elements
+         * @param {Function} callback 
+         */
         each(callback) {
             if (typeof callback === 'function') {
                 this.elements.forEach((element, i) => {
@@ -23,6 +32,13 @@ window.DOMHelper = ( function() {
             }
         }
 
+        /**
+         * Attach event
+         * 
+         * @param {string} event 
+         * @param {string|Function} selector 
+         * @param {Function} callback 
+         */
         on(event, selector, callback) {
             if (typeof selector === 'function') {
                 this.each( element => {
@@ -47,6 +63,10 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Add class to elements
+         * @param {string} className 
+         */
         addClass(className) {
             this.each(element => {
                 element.classList.add(className);
@@ -54,6 +74,10 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Remove class from elements
+         * @param {string} className 
+         */
         removeClass(className) {
             this.each(element => {
                 element.classList.remove(className);
@@ -61,6 +85,10 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * 
+         * @param {string} className 
+         */
         toggleClass(className) {
             this.each(element => {
                 element.classList.toggle(className);
@@ -68,6 +96,9 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Show elements
+         */
         show() {
             this.each(element => {
                 element.style.display = '';
@@ -75,6 +106,9 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Hide elements
+         */
         hide() {
             this.each(element => {
                 element.style.display = 'none';
@@ -82,6 +116,9 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Toggle elements visibility
+         */
         toggle() {
             this.each(element => {
                 element.style.display = (element.style.display === 'none') ? '' : 'none';
@@ -89,6 +126,12 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Set element attribute
+         * 
+         * @param {string} name 
+         * @param {string} value 
+         */
         attr(name, value) {
             this.each(element => {
                 if (!value) {
@@ -99,11 +142,20 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Remove element attribute
+         * 
+         * @param {string} name 
+         */
         removeAttr(name) {
             this.each(element => element.removeAttribute(name));
             return this;
         }
 
+        /**
+         * Update or get elements html content
+         * @param {string} html 
+         */
         html(html) {
             this.each( element => {
                 if (!html) {
@@ -114,6 +166,10 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Update or get elements text content
+         * @param {string} html 
+         */
         text(text) {
             this.each( element => {
                 if (!text) {
@@ -124,6 +180,11 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+       /**
+        * Get or set data attribute
+        * @param {string} key 
+        * @param {string} value 
+        */
         data(key, value) {
             this.each( element => {
                 if (!value) {
@@ -134,6 +195,10 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Append node
+         * @param {string} node 
+         */
         append(node) {
             this.each(element => {
                 element.append(node);
@@ -141,6 +206,10 @@ window.DOMHelper = ( function() {
             return this;
         }
 
+        /**
+         * Prepend node
+         * @param {string} node 
+         */
         prepend(node) {
             this.each(element => {
                 element.prepend(node);
@@ -153,6 +222,7 @@ window.DOMHelper = ( function() {
     return selector => {
         const instantiated = instances.find( instance => instance.selector === selector )
 
+        // Check if selector is already instantiated
         if ( instantiated ) {
             return instantiated.instance;
         }
