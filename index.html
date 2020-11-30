@@ -24,9 +24,9 @@
                 $(this).html('Clicked!')
             } );
 
-            $('li').each( function( item ) {
-                $(item).append( ' - ajme' ).hide();
-                $(item).prepend( 'aha - ' ).show();
+            $('li').each( function( item, i ) {
+                $(item).prepend( `${i} - prepend - ` );
+                $(item).append( ' - append' );
             } );
         })(DOMHelper)
     </script>
