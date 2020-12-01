@@ -1,0 +1,30 @@
+{
+  "name": "domhelper",
+  "version": "1.0.0",
+  "description": "DOMHelper",
+  "main": "domhelper.js",
+  "scripts": {
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alaca/domhelper.git"
+  },
+  "keywords": [
+    "dom",
+    "helper",
+    "javascript"
+  ],
+  "author": "alaca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alaca/domhelper/issues"
+  },
+  "homepage": "https://github.com/alaca/domhelper#readme",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^5.0.9",
+    "vue-template-compiler": "^2.6.12"
+  }
+}
