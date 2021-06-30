@@ -28,31 +28,31 @@ A small helper utility that provides basic methods for DOM manipulation. API ins
 * [.prepend(node|string)](#prependnodestring)
 * [.css(styles)](#cssstyles)
 
-
 #### .on(event, [selector], function)
 
 Attach an event handler function to the selected elements.
 
 ```js
 $( '#elementId' ).on( 'click', function() {
-  console.log( $( this ).html() );
-});
+	console.log( $( this ).html() );
+} );
 ```
 
 Event delegation
+
 ```js
 $( document ).on( 'click', '#elementId', function() {
-  console.log( $( this ).html() );
+	console.log( $( this ).html() );
 } );
 ```
 
 #### .each(function)
 
-Iterate over a NodeList object, executing a function for each matched Element. 
+Iterate over a NodeList object, executing a function for each matched Element.
 
 ```js
 $( 'li' ).each( function( element, index ) {
-  console.log( $( element ).html() );
+	console.log( $( element ).html() );
 } );
 ```
 
@@ -98,7 +98,8 @@ if ( $( '#elementId' ).hasClass( 'test-class' ) ) {
 
 #### .closest(selector)
 
-Get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
+Get the first element that matches the selector by testing the element itself and traversing up through its ancestors in
+the DOM tree.
 
 ```js
 const closestSection = $( '#elementId' ).closest( '.section' );
@@ -135,7 +136,7 @@ $( '#navigation li' ).last().addClass( 'last' );
 Reduce the set of matched elements to the one at the specified index.
 
 ```js
-$( '#navigation li' ).eq(2).addClass( 'third' );
+$( '#navigation li' ).eq( 2 ).addClass( 'third' );
 ```
 
 #### .remove()
@@ -172,10 +173,11 @@ $( '.section' ).toggle();
 
 #### .attr(name, [value])
 
-Get the value of an attribute for the first element in the set of matched elements or set attribute for every matched element.
+Get the value of an attribute for the first element in the set of matched elements or set attribute for every matched
+element.
 
 ```js
-$( 'a' ).attr( 'href', 'https://github.com/alaca/domhelper');
+$( 'a' ).attr( 'href', 'https://github.com/alaca/domhelper' );
 ```
 
 Get attribute
@@ -274,11 +276,11 @@ $( '.section' ).prepend( element );
 
 #### .css(styles)
 
-Set CSS styles of each element in the set of matched elements.  
+Set CSS styles of each element in the set of matched elements.
 
 ```js
-$( '.section' ).css( { 
-  color: 'red', 
-  fontWeight: 'bold'
+$( '.section' ).css( {
+	color: 'red',
+	fontWeight: 'bold'
 } );
 ```

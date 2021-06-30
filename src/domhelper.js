@@ -111,7 +111,7 @@ window.DOMHelper = ( function() {
 		 * @return {boolean}
 		 */
 		hasClass( className ) {
-			return this.elements[0].classList.contains( className );
+			return this.elements[ 0 ].classList.contains( className );
 		}
 
 		/**
@@ -121,7 +121,7 @@ window.DOMHelper = ( function() {
 		 * @return {$}
 		 */
 		closest( selector ) {
-			return new $( this.elements[0].closest( selector ) );
+			return new $( this.elements[ 0 ].closest( selector ) );
 		}
 
 		/**
@@ -130,7 +130,7 @@ window.DOMHelper = ( function() {
 		 * @return {$}
 		 */
 		parent() {
-			return new $( this.elements[0].parentElement );
+			return new $( this.elements[ 0 ].parentElement );
 		}
 
 		/**
@@ -139,7 +139,7 @@ window.DOMHelper = ( function() {
 		 * @return {$}
 		 */
 		first() {
-			return new $( this.elements[0] );
+			return new $( this.elements[ 0 ] );
 		}
 
 		/**
@@ -148,7 +148,7 @@ window.DOMHelper = ( function() {
 		 * @return {$}
 		 */
 		last() {
-			return new $( this.elements[ this.elements.length -1 ] );
+			return new $( this.elements[ this.elements.length - 1 ] );
 		}
 
 		/**
@@ -167,6 +167,7 @@ window.DOMHelper = ( function() {
 				element.parentNode.removeChild( element );
 			} );
 		}
+
 		/**
 		 * Show elements
 		 *
@@ -212,7 +213,7 @@ window.DOMHelper = ( function() {
 		 */
 		attr( name, value ) {
 			if ( ! value ) {
-				return this.elements[0].getAttribute( name );
+				return this.elements[ 0 ].getAttribute( name );
 			}
 			this.each( element => {
 				element.setAttribute( name, value );
@@ -238,7 +239,7 @@ window.DOMHelper = ( function() {
 		 */
 		html( html ) {
 			if ( ! html ) {
-				return this.elements[0].innerHTML;
+				return this.elements[ 0 ].innerHTML;
 			}
 			this.each( element => {
 				element.innerHTML = html;
@@ -253,7 +254,7 @@ window.DOMHelper = ( function() {
 		 */
 		text( text ) {
 			if ( ! text ) {
-				return this.elements[0].innerText;
+				return this.elements[ 0 ].innerText;
 			}
 			this.each( element => {
 				element.innerText = text;
@@ -269,7 +270,7 @@ window.DOMHelper = ( function() {
 		 */
 		data( key, value ) {
 			if ( ! value ) {
-				return this.elements[0].dataset[ key ];
+				return this.elements[ 0 ].dataset[ key ];
 			}
 			this.each( element => {
 				element.dataset[ key ] = value;
@@ -308,8 +309,8 @@ window.DOMHelper = ( function() {
 		 */
 		css( styles ) {
 			this.each( element => {
-				for ( const [property, value] of Object.entries( styles ) ) {
-					element.style[property] = value;
+				for ( const [ property, value ] of Object.entries( styles ) ) {
+					element.style[ property ] = value;
 				}
 			} );
 			return this;
