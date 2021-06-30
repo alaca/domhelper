@@ -10,23 +10,11 @@
 
     <div id="test">Click me</div>
 
-    <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-    </ul>
-
-    <script src="public/domhelper.js"></script>
+    <script src="../public/domhelper.js"></script>
     <script>
         (function($) {
-            $('#test').on('click', function(e) {
+            $( document ).on('click', '#test', function(e) {
                 $(this).html('Clicked!')
-            } );
-
-            $('li').each( function( item, i ) {
-                $(item).prepend( `${i} - prepend - ` );
-                $(item).append( ' - append' );
             } );
         })(DOMHelper)
     </script>
