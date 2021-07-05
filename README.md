@@ -6,10 +6,10 @@ A small helper utility that provides basic methods for DOM manipulation. API ins
 
 * [.on(event, [selector], function)](#onevent-selector-function)
 * [.each(function)](#eachfunction)
-* [.addClass(className)](#addclassclassname)
-* [.removeClass(className)](#removeclassclassname)
-* [.toggleClass(className)](#toggleclassclassname)
-* [.hasClass(className)](#toggleclassclassname)
+* [.addClass(className|array)](#addclassclassnamearray)
+* [.removeClass(className|array)](#removeclassclassnamearray)
+* [.toggleClass(className|array)](#toggleclassclassnamearray)
+* [.hasClass(className)](#hasclassclassname)
 * [.closest(selector)](#closestselector)
 * [.parent()](#parent)
 * [.first()](#first)
@@ -56,7 +56,7 @@ $( 'li' ).each( function( element, index ) {
 } );
 ```
 
-#### .addClass(className)
+#### .addClass(className|array)
 
 Adds the specified class to element.
 
@@ -70,7 +70,7 @@ Adding multiple classes.
 $( '#elementId' ).addClass( [ 'one', 'two' ] );
 ```
 
-#### .removeClass(className)
+#### .removeClass(className|array)
 
 Removes the specified class from element.
 
@@ -84,7 +84,7 @@ Removing multiple classes.
 $( '#elementId' ).removeClass( [ 'one', 'two' ] );
 ```
 
-#### .toggleClass(className)
+#### .toggleClass(className|array)
 
 Add or remove class from element, depending on the class's presence.
 
