@@ -293,3 +293,14 @@ $( '.section' ).css( {
 	fontWeight: 'bold'
 } );
 ```
+
+Using string literals 
+
+```js
+const styles = `
+    folor: red; 
+    font-weight: bold;
+`;
+
+$( '.section' ).css( styles );
+```
