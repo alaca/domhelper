@@ -1,4 +1,4 @@
-# DOMhelper
+# DOM Helper
 
 A small helper utility that provides basic methods for DOM manipulation. API inspired by jQuery.
 
@@ -64,10 +64,10 @@ Adds the specified class to element.
 $( '#elementId' ).addClass( 'test-class' );
 ```
 
-Adding multiple classes
+Adding multiple classes.
 
 ```js
-$( '#elementId' ).addClass( 'one' ).addClass( 'two' );
+$( '#elementId' ).addClass( [ 'one', 'two' ] );
 ```
 
 #### .removeClass(className)
@@ -78,12 +78,25 @@ Removes the specified class from element.
 $( '#elementId' ).removeClass( 'test-class' );
 ```
 
+Removing multiple classes.
+
+```js
+$( '#elementId' ).removeClass( [ 'one', 'two' ] );
+```
+
 #### .toggleClass(className)
 
 Add or remove class from element, depending on the class's presence.
 
 ```js
 $( '#elementId' ).toggleClass( 'test-class' );
+```
+
+
+Toggle multiple classes.
+
+```js
+$( '#elementId' ).toggleClass( [ 'one', 'two' ] );
 ```
 
 #### .hasClass(className)
@@ -251,9 +264,7 @@ $( '.section' ).append( ' this is appended text' );
 Append node
 
 ```js
-const element = document.createElement( 'div' );
-element.innerText = 'Appended element content';
-
+const element = $( document.createElement( 'div' ) ).text( 'Appended element content' );
 $( '.section' ).append( element );
 ```
 
@@ -268,9 +279,7 @@ $( '.section' ).prepend( ' this is prepended text' );
 Append node
 
 ```js
-const element = document.createElement( 'div' );
-element.innerText = 'Prepended element content';
-
+const element = $( document.createElement( 'div' ) ).text( 'Prepended element content' );
 $( '.section' ).prepend( element );
 ```
 
