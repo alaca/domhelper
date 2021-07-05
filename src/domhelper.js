@@ -72,36 +72,57 @@ window.DOMHelper = ( function() {
 
 		/**
 		 * Add class to elements
-		 * @param {string} className
+		 * @param {string|array} className
 		 * @return {$}
 		 */
 		addClass( className ) {
+			const isArray = Array.isArray( className );
 			this.each( element => {
-				element.classList.add( className );
+				if ( isArray ) {
+					className.forEach( ( classNameItem ) => {
+						element.classList.add( classNameItem );
+					} );
+				} else {
+					element.classList.add( className );
+				}
 			} );
 			return this;
 		}
 
 		/**
 		 * Remove class from elements
-		 * @param {string} className
+		 * @param {string|array} className
 		 * @return {$}
 		 */
 		removeClass( className ) {
+			const isArray = Array.isArray( className );
 			this.each( element => {
-				element.classList.remove( className );
+				if ( isArray ) {
+					className.forEach( ( classNameItem ) => {
+						element.classList.remove( classNameItem );
+					} );
+				} else {
+					element.classList.remove( className );
+				}
 			} );
 			return this;
 		}
 
 		/**
 		 *
-		 * @param {string} className
+		 * @param {string|array} className
 		 * @return {$}
 		 */
 		toggleClass( className ) {
+			const isArray = Array.isArray( className );
 			this.each( element => {
-				element.classList.toggle( className );
+				if ( isArray ) {
+					className.forEach( ( classNameItem ) => {
+						element.classList.toggle( classNameItem );
+					} );
+				} else {
+					element.classList.toggle( className );
+				}
 			} );
 			return this;
 		}
@@ -280,37 +301,57 @@ window.DOMHelper = ( function() {
 
 		/**
 		 * Append node
-		 * @param {(Node|string)} node
+		 * @param {(Node|string|$)} node
 		 * @return {$}
 		 */
 		append( node ) {
+			const isDHInstance = node instanceof $;
 			this.each( element => {
-				element.append( node );
+				if ( isDHInstance ) {
+					node.each( nodeElement => {
+						element.append( nodeElement );
+					} );
+				} else {
+					element.append( node );
+				}
 			} );
 			return this;
 		}
 
 		/**
 		 * Prepend node
-		 * @param {(Node|string)} node
+		 * @param {(Node|string|$)} node
 		 * @return {$}
 		 */
 		prepend( node ) {
+			const isDHInstance = node instanceof $;
 			this.each( element => {
-				element.prepend( node );
+				if ( isDHInstance ) {
+					node.each( nodeElement => {
+						element.prepend( nodeElement );
+					} );
+				} else {
+					element.prepend( node );
+				}
 			} );
 			return this;
 		}
 
 		/**
-		 * @param {Object.<string, string>} styles
-		 * @example {fontWeight: 'bold'}
+		 * @param {Object.<string, string>|string} styles
+		 * @example using object {fontWeight: 'bold'}
+		 * @example using string {`font-weight: 'bold'`}
 		 * @return {$}
 		 */
 		css( styles ) {
+			const isString = typeof styles === 'string';
 			this.each( element => {
-				for ( const [ property, value ] of Object.entries( styles ) ) {
-					element.style[ property ] = value;
+				if ( isString ) {
+					element.style.cssText = `${element.style.cssText} ${styles}`;
+				} else {
+					for ( const [ property, value ] of Object.entries( styles ) ) {
+						element.style[ property ] = value;
+					}
 				}
 			} );
 			return this;
