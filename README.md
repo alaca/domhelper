@@ -189,6 +189,8 @@ $( '.section' ).toggle();
 Get the value of an attribute for the first element in the set of matched elements or set attribute for every matched
 element.
 
+Set attribute
+
 ```js
 $( 'a' ).attr( 'href', 'https://github.com/alaca/domhelper' );
 ```
@@ -210,32 +212,37 @@ $( 'a' ).removeAttr( 'href' );
 
 #### .html([html])
 
-Get the HTML contents of the first element in the set of matched elements.
+Get the HTML contents of the first element in the set of matched elements or set the HTML contents to matched elements.
 
-```js
-$( '.section' ).html( '<h1>Section content</h1>' );
-```
-
-Get html
+Get HTML contents
 
 ```js
 const htmlContent = $( '.section' ).html();
 console.log( htmlContent );
 ```
 
-#### .text([text])
-
-Get the text contents of the first element in the set of matched elements.
+Set HTML contents
 
 ```js
-$( '.section' ).text( 'Section content' );
+$( '.section' ).html( '<h1>Section content</h1>' );
 ```
 
-Get text
+#### .text([text])
+
+Get the text contents of the first element in the set of matched elements or set the text content to matched elements.
+
+Get text content
 
 ```js
 const textContent = $( '.section' ).text();
 console.log( textContent );
+```
+
+
+Set text content
+
+```js
+$( '.section' ).text( 'Section content' );
 ```
 
 #### .data(key, [value])
@@ -276,7 +283,7 @@ Insert content to the beginning of each element in the set of matched elements.
 $( '.section' ).prepend( ' this is prepended text' );
 ```
 
-Append node
+Prepend node
 
 ```js
 const element = $( document.createElement( 'div' ) ).text( 'Prepended element content' );
